@@ -1,0 +1,20 @@
+#include <stdio.h>
+#include<string.h>
+
+void reverseString(char *str, int index, int len) {
+    if (index >= len / 2)
+        return;
+    char temp = str[index];
+    str[index] = str[len - index - 1];
+    str[len - index - 1] = temp;
+    reverseString(str, index + 1, len);
+}
+
+int main() {
+    char str[] = "Hello, World!";
+    int len = strlen(str);
+    reverseString(str, 0, len);
+    printf("Reversed String: %s\n", str);
+    return 0;
+}
+
